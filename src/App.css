@@ -1,42 +1,48 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* App.css */
+.layout {
+  display: flex;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.nav {
+  width: 240px;
+  height: 100vh;
+  background: #111;
+  color: white;
+  padding: 20px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+main {
+  flex: 1;
+  padding: 40px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+/* マウスを置く前の線の状態 */
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;              /* 最初は長さゼロ */
+  height: 2px;           /* 線の太さ */
+  background-color: currentColor; /* 文字と同じ色にする */
+  transition: width 0.3s ease;    /* 0.3秒かけて伸びるようにする */
 }
 
-.card {
-  padding: 2em;
+/* マウスを置いた（ホバーした）時の状態 */
+.nav-item:hover::after {
+  width: 100%;           /* 長さを100%に伸ばす */
 }
 
-.read-the-docs {
-  color: #888;
+:root {
+  --dac-blue: #0057ff;      /* DACらしい鮮やかな青 */
+  --dac-dark: #1a1a1a;      /* 深みのある黒 */
+  --dac-gray: #f8f9fa;      /* 背景用の薄いグレー */
+  --white: #ffffff;
+}
+
+/* src/App.css */
+.dac-button:hover {
+  background-color: #0046cc !important; /* 少し濃い青に */
+  transform: translateY(-2px);           /* わずかに浮き上がる */
+  box-shadow: 0 5px 15px rgba(0, 87, 255, 0.3); /* 青い影を出す */
 }
